@@ -26,8 +26,7 @@ class AboutProjectScreen extends StatelessWidget {
             Spacer(),
             Padding(
               padding: EdgeInsets.all(16.0),
-              child: Text('made-with-love')
-                  .tr(args: ['❤', 'Karol Zientek', 'Dave Dey']),
+              child: Text('made-with-love').tr(),
             )
           ],
         ),
