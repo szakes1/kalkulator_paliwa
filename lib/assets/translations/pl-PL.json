@@ -1,4 +1,6 @@
 {
     "title": "Kalkulator paliwa",
-    "about-project": "O projekcie"
+    "about-project": "O projekcie",
+    "about-project-description": "Aplikacja służy do obliczania ceny za paliwo za pokonaną trasę. Stworzona z myślą o osobach, które często podróżują.",
+    "made-with-love": "Stworzona z {} od {} i {}"
 }
