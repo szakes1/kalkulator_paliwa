@@ -32,8 +32,10 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.help),
               title: Text('about-project').tr(),
-              onTap: () {},
-            )
+              onTap: () {
+                Navigator.of(context).pushNamed('/about-project');
+              },
+            ),
           ],
         ),
       ),
