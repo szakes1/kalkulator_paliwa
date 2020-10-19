@@ -74,4 +74,4 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  image_path: "lib/assets/icons/kalkulator_paliwa_light_icon.png"
+  image_path: "lib/assets/icons/kalkulator_paliwa_dark_icon.png"
