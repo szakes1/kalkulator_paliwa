@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:kalkulator_paliwa/shared/text_styles.dart';
+import 'package:kalkulator_paliwa/widgets/calculator_form_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           padding: EdgeInsets.all(0.0),
           children: [
             DrawerHeader(
-              child: Text('title', style: _textStyles.heading1).tr(),
+              child: Text('title', style: _textStyles.drawerHeader).tr(),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -36,6 +37,18 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context).pushNamed('/about-project');
               },
             ),
+          ],
+        ),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: ListView(
+          children: [
+            Text('how-to-use', style: _textStyles.heading1).tr(),
+            SizedBox(height: 10.00),
+            Text('instructions', style: _textStyles.regular).tr(),
+            SizedBox(height: 30),
+            CalculatorForm()
           ],
         ),
       ),
