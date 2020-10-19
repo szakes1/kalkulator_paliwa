@@ -2,5 +2,14 @@
     "title": "Kalkulator paliwa",
     "about-project": "O projekcie",
     "about-project-description": "Aplikacja służy do obliczania ceny za paliwo za pokonaną trasę. Stworzona z myślą o osobach, które często podróżują.",
-    "made-with-love": "Stworzona z ❤ od Karol Zientek i Dave Dey"
+    "made-with-love": "Stworzona z ❤ od Karol Zientek i Dave Dey",
+    "how-to-use": "Jak używać?",
+    "instructions": "Podaj wszystkie wymagane wartości w polach i kliknij \"Oblicz\". Nic prostszego!",
+    "cannot-be-blank": "Pole nie może być puste!",
+    "kilometers": "Kilometry",
+    "liter": "Spalanie na 100 kilometrów",
+    "fuel-price": "Cena paliwa",
+    "calculate": "Oblicz",
+    "result": "Wynik: {} zł",
+    "cannot-contain-comma": "Wartość nie może zawierać przecinka, użyj kropki!"
 }
