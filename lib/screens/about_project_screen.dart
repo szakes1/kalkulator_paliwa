@@ -5,7 +5,7 @@ import 'package:kalkulator_paliwa/shared/text_styles.dart';
 class AboutProjectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final TextStyles textStyles = TextStyles();
+    final TextStyles _textStyles = TextStyles();
     return Scaffold(
       appBar: AppBar(
         title: Text('about-project').tr(),
@@ -21,7 +21,7 @@ class AboutProjectScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text('about-project-description',
-                    style: textStyles.aboutProjectDescription)
+                    style: _textStyles.aboutProjectDescription)
                 .tr(),
             Spacer(),
             Padding(

@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.0
   easy_localization: ^2.3.3
+  provider: ^4.3.2+2
 
 dev_dependencies:
   flutter_test:
@@ -53,8 +54,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
+  fonts:
+    - family: Comfortaa
+      fonts:
+        - asset: lib/assets/fonts/Comfortaa-Regular.ttf
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
