@@ -7,28 +7,19 @@ class CalculatorValidation extends ChangeNotifier {
   ValidationItem _liter = ValidationItem(null, null);
   ValidationItem _fuelPrice = ValidationItem(null, null);
   ValidationItem _peopleQuantity = ValidationItem(null, null);
+
   String _result = '???';
 
   ValidationItem get kilometers => _kilometers;
   ValidationItem get liter => _liter;
   ValidationItem get fuelPrice => _fuelPrice;
   ValidationItem get peopleQuantity => _peopleQuantity;
-  String get result => _result;
 
-  bool get isValid {
-    if (kilometers != null && liter.value != null && fuelPrice.value != null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  String get result => _result;
 
   void setKilometers(String value) {
     if (value.isEmpty) {
-      _kilometers = ValidationItem(
-        null,
-        'cannot-be-blank'.tr(),
-      );
+      _kilometers = ValidationItem('???', 'cannot-be-blank'.tr());
     } else {
       _kilometers = ValidationItem(value, null);
     }
@@ -37,7 +28,7 @@ class CalculatorValidation extends ChangeNotifier {
 
   void setLiter(String value) {
     if (value.isEmpty) {
-      _liter = ValidationItem(null, 'cannot-be-blank'.tr());
+      _liter = ValidationItem('???', 'cannot-be-blank'.tr());
     } else {
       _liter = ValidationItem(value, null);
     }
@@ -46,7 +37,7 @@ class CalculatorValidation extends ChangeNotifier {
 
   void setFuelPrice(String value) {
     if (value.isEmpty) {
-      _fuelPrice = ValidationItem(null, 'cannot-be-blank'.tr());
+      _fuelPrice = ValidationItem('0', 'cannot-be-blank'.tr());
     } else {
       _fuelPrice = ValidationItem(value, null);
     }
@@ -54,9 +45,12 @@ class CalculatorValidation extends ChangeNotifier {
   }
 
   void setPeopleQuantity(String value) {
-    if (value.isNotEmpty) {
+    if (value.isEmpty) {
+      _peopleQuantity = ValidationItem('1', null);
+    } else {
       _peopleQuantity = ValidationItem(value, null);
     }
+
     notifyListeners();
   }
 
@@ -65,22 +59,29 @@ class CalculatorValidation extends ChangeNotifier {
     _liter.value = _liter.value.replaceAll(',', '.');
     _fuelPrice.value = _fuelPrice.value.replaceAll(',', '.');
 
-    if (_peopleQuantity.value != null) {
-      double _calculatedPrice =
-          (((double.parse(_kilometers.value) * double.parse(_liter.value)) /
-                      100) *
-                  double.parse(_fuelPrice.value)) /
-              double.parse(_peopleQuantity.value);
-
-      _result = _calculatedPrice.toStringAsFixed(2).replaceAll('.', ',');
+    if (_kilometers.value == '0' ||
+        _liter.value == '0' ||
+        _fuelPrice.value == '0') {
+      _result = '???';
     } else {
-      double _calculatedPrice =
-          ((double.parse(_kilometers.value) * double.parse(_liter.value)) /
-                  100) *
-              double.parse(_fuelPrice.value);
+      if (_peopleQuantity.value != null) {
+        double _calculatedPrice =
+            (((double.parse(_kilometers.value) * double.parse(_liter.value)) /
+                        100) *
+                    double.parse(_fuelPrice.value)) /
+                double.parse(_peopleQuantity.value);
 
-      _result = _calculatedPrice.toStringAsFixed(2);
+        _result = _calculatedPrice.toStringAsFixed(2).replaceAll('.', ',');
+      } else {
+        double _calculatedPrice =
+            ((double.parse(_kilometers.value) * double.parse(_liter.value)) /
+                    100) *
+                double.parse(_fuelPrice.value);
+
+        _result = _calculatedPrice.toStringAsFixed(2);
+      }
     }
+
     print(_peopleQuantity.value);
 
     notifyListeners();
