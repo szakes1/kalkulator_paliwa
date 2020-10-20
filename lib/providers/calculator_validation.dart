@@ -27,8 +27,6 @@ class CalculatorValidation extends ChangeNotifier {
         null,
         'cannot-be-blank'.tr(),
       );
-    } else if (value.contains(',')) {
-      _kilometers = ValidationItem(null, 'cannot-contain-comma'.tr());
     } else {
       _kilometers = ValidationItem(value, null);
     }
@@ -38,8 +36,6 @@ class CalculatorValidation extends ChangeNotifier {
   void setLiter(String value) {
     if (value.isEmpty) {
       _liter = ValidationItem(null, 'cannot-be-blank'.tr());
-    } else if (value.contains(',')) {
-      _liter = ValidationItem(null, 'cannot-contain-comma'.tr());
     } else {
       _liter = ValidationItem(value, null);
     }
@@ -49,8 +45,6 @@ class CalculatorValidation extends ChangeNotifier {
   void setFuelPrice(String value) {
     if (value.isEmpty) {
       _fuelPrice = ValidationItem(null, 'cannot-be-blank'.tr());
-    } else if (value.contains(',')) {
-      _fuelPrice = ValidationItem(null, 'cannot-contain-comma'.tr());
     } else {
       _fuelPrice = ValidationItem(value, null);
     }
@@ -58,11 +52,17 @@ class CalculatorValidation extends ChangeNotifier {
   }
 
   void calculate() {
+    _kilometers.value = _kilometers.value.replaceAll(',', '.');
+    _liter.value = _liter.value.replaceAll(',', '.');
+    _fuelPrice.value = _fuelPrice.value.replaceAll(',', '.');
+
     double _calculatedPrice =
-        ((double.parse(kilometers.value) * double.parse(liter.value)) / 100) *
-            double.parse(fuelPrice.value);
+        ((double.parse(_kilometers.value) * double.parse(_liter.value)) / 100) *
+            double.parse(_fuelPrice.value);
 
     _result = _calculatedPrice.toStringAsFixed(2);
+
+    _result = _result.replaceAll('.', ',');
     notifyListeners();
   }
 }
