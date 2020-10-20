@@ -82,8 +82,6 @@ class CalculatorValidation extends ChangeNotifier {
       }
     }
 
-    print(_peopleQuantity.value);
-
     notifyListeners();
   }
 }

@@ -74,6 +74,7 @@ class CalculatorForm extends StatelessWidget {
             validationService.calculate();
           },
           keyboardType: TextInputType.numberWithOptions(decimal: false),
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         ),
         SizedBox(height: 30.0),
         Text('result', style: textStyles.result).tr(args: [
