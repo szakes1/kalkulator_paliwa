@@ -19,19 +19,24 @@ class KalkulatorPaliwa extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => CalculatorValidation(),
-      child: MaterialApp(
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
-        title: 'title'.tr(),
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-        routes: {
-          '/about-project': (context) => AboutProjectScreen(),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
         },
-        theme: ThemeData(
-          primaryColor: Colors.red[700],
-          fontFamily: 'Comfortaa',
+        child: MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: 'title'.tr(),
+          debugShowCheckedModeBanner: false,
+          home: HomeScreen(),
+          routes: {
+            '/about-project': (context) => AboutProjectScreen(),
+          },
+          theme: ThemeData(
+            primaryColor: Colors.red[700],
+            fontFamily: 'Comfortaa',
+          ),
         ),
       ),
     );
