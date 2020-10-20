@@ -24,6 +24,7 @@ class CalculatorForm extends StatelessWidget {
           ),
           onChanged: (String value) {
             validationService.setKilometers(value);
+            validationService.calculate();
           },
           keyboardType: TextInputType.numberWithOptions(decimal: true),
         ),
@@ -39,6 +40,7 @@ class CalculatorForm extends StatelessWidget {
           ),
           onChanged: (String value) {
             validationService.setLiter(value);
+            validationService.calculate();
           },
           keyboardType: TextInputType.numberWithOptions(decimal: true),
         ),
@@ -54,6 +56,7 @@ class CalculatorForm extends StatelessWidget {
           ),
           onChanged: (String value) {
             validationService.setFuelPrice(value);
+            validationService.calculate();
           },
           keyboardType: TextInputType.numberWithOptions(decimal: true),
         ),
@@ -68,20 +71,14 @@ class CalculatorForm extends StatelessWidget {
           ),
           onChanged: (String value) {
             validationService.setPeopleQuantity(value);
+            validationService.calculate();
           },
           keyboardType: TextInputType.numberWithOptions(decimal: false),
         ),
-        SizedBox(height: 10.0),
-        RaisedButton(
-          child: Text('calculate').tr(),
-          color: Colors.red[700],
-          textColor: Colors.white,
-          onPressed:
-              (validationService.isValid) ? null : validationService.calculate,
-        ),
         SizedBox(height: 30.0),
-        Text('result', style: textStyles.result)
-            .tr(args: [validationService.result])
+        Text('result', style: textStyles.result).tr(args: [
+          validationService.result,
+        ])
       ],
     );
   }
