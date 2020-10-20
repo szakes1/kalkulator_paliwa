@@ -58,6 +58,20 @@ class CalculatorForm extends StatelessWidget {
           keyboardType: TextInputType.numberWithOptions(decimal: true),
         ),
         SizedBox(height: 10.0),
+        TextField(
+          decoration: InputDecoration(
+            labelText: 'people-quantity'.tr(),
+            contentPadding: EdgeInsets.all(15.0),
+            border: InputBorder.none,
+            filled: true,
+            fillColor: Colors.grey[200],
+          ),
+          onChanged: (String value) {
+            validationService.setPeopleQuantity(value);
+          },
+          keyboardType: TextInputType.numberWithOptions(decimal: false),
+        ),
+        SizedBox(height: 10.0),
         RaisedButton(
           child: Text('calculate').tr(),
           color: Colors.red[700],

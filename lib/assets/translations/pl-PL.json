@@ -11,5 +11,6 @@
     "fuel-price": "Cena paliwa",
     "calculate": "Oblicz",
     "result": "Wynik: {} zł",
-    "cannot-contain-comma": "Wartość nie może zawierać przecinka, użyj kropki!"
+    "cannot-contain-comma": "Wartość nie może zawierać przecinka, użyj kropki!",
+    "people-quantity": "Ilość osób (opcjonalnie)"
 }
